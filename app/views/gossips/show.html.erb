@@ -19,9 +19,10 @@
 </nav>
 
 <div class="jumbotron text-center">
-<h3><%= @user.first_name%> <%= @user.last_name%></h3>
-<p>Description : <%= @user.description %></p>
-<p>Email : <%= @user.email %></p>
-<p>Age : <%= @user.age %> ans </p>
-<p>City : <a href="<%= city_path(@user.city.id) %>"><%= @user.city.name %></a></p>
+  <p> <%= @gossip.title%> </p>
+  <p>Nom de l'auteur : <a href="<%=user_path%>"> <%=@gossip.user.first_name%> </a></p>
+  <p> Description de l'auteur : <%= @gossip.user.description %></p>
+  <p> Contenu du potin : <%= @gossip.content %></p>
+  <p> Date de création : <%= @gossip.created_at %></p>
+  <p> Ville : <%= @gossip.user.city.name%></p>
 </div>

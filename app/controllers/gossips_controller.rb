@@ -18,8 +18,17 @@ class GossipsController < ApplicationController
   end
 
   def index
+    @gossips = Gossip.all
   end
 
+  def show
+    @gossip = Gossip.find(params[:id])
+  end
+
+  def update
+    @gossip = Gossip.find(params[:id])
+
+  end
   private
 
   def gossips_params

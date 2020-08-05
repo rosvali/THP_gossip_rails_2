@@ -14,8 +14,8 @@
     </ul>
   </div>
 </nav>
-<h3><%= @gossip.title %></h3>
-<%= link_to @gossip.user.first_name, user_path(@gossip.user.id)%>
-<p> Description de l'auteur : <%= @gossip.user.description %></p>
-<p> Contenu du potin : <%= @gossip.content %></p>
-<p> Date de création : <%= @gossip.created_at %></p>
+  <h3><%= @gossip.title %></h3>
+  <%= link_to @gossip.user.first_name, user_path(@gossip.user.id)%>
+  <p> Description de l'auteur : <%= @gossip.user.description %></p>
+  <p> Contenu du potin : <%= @gossip.content %></p>
+  <p> Date de création : <%= @gossip.created_at %></p>
