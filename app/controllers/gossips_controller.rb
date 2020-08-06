@@ -1,15 +1,14 @@
 class GossipsController < ApplicationController
-  
+  before_action :authenticate_user, only: [:new, :create, :show, :edit, :destroy]
+
   def new
     @gossip = Gossip.new
+    puts session[:user_id]
   end
 
   def create
     @gossip = Gossip.new(gossips_params)
-    city = City.new
-    user = User.new
-    user.city = city
-    @gossip.user = user
+    @gossip.user = current_user
     if @gossip.save
       redirect_to gossips_path
     else
@@ -25,13 +24,31 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
   end
 
+  def edit
+    @gossip = Gossip.find(params[:id])
+  end
+
   def update
     @gossip = Gossip.find(params[:id])
-
+    @gossip.update(gossips_params)
+    redirect_to gossips_path
   end
+
+  def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.delete
+    redirect_to gossips_path
+  end
+
   private
 
   def gossips_params
     params.require(:gossip).permit(:title, :content)
+  end
+
+  def authenticate_user
+    if !current_user
+      redirect_to new_session_path
+    end
   end
 end

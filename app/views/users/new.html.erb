@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<%=home_path%>">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="<%=gossips_path%>">Gossips</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=team_path%>">Equipe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=contact_path%>">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">S'inscrire</h1>
+</div>
+
+<p>
+  <%= form_for(@user) do |f| %>
+<div class="form-group">
+  <label>Email : </label>
+  <%= f.text_field :email, class: 'form-control'%>
+</div>
+<div class="form-group">
+  <label>Mot de passe : </label>
+  <%= f.text_field :password, class: 'form-control'%>
+</div>
+<div class="form-group">
+  <label>Prénom : </label>
+  <%= f.text_field :first_name, class: 'form-control'%>
+</div>
+<div class="form-group">
+  <button type="submit" class="btn btn-primary">Valider</button>
+</div>
+<% end %>
+</p>

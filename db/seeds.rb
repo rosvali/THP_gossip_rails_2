@@ -15,12 +15,12 @@ Gossip.destroy_all
 
 # h = "#"
 
-5.times do
-	city = City.create(name: Faker::Nation.capital_city, zip_code: Faker::Address.zip_code)
-	user1 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.matz, email: Faker::Internet.email, age: rand(15..80), city: city)
+2.times do
+	# city = City.create(name: Faker::Nation.capital_city, zip_code: Faker::Address.zip_code)
+	# user1 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.matz, email: Faker::Internet.email, age: rand(15..80), city: city)
 # 	user2 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.matz, email: Faker::Internet.email, age: rand(15..80), city: city)
 # 	t = Tag.create(title: (h + Faker::TvShows::BreakingBad.episode))
-	g = Gossip.create(title: Faker::App.name, content: Faker::Quote.matz, user: user1)
+	# g = Gossip.create(title: Faker::App.name, content: Faker::Quote.matz, user: user1)
 # 	g = Gossip.create(title: Faker::App.name, content: Faker::Quote.matz, user: user2)
 # 	GossipTagTable.create(tag: t, gossip: g)
 # 	PrivateMessage.create(content: Faker::TvShows::RickAndMorty.quote, recipient: user2, sender: user1)
