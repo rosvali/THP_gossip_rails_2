@@ -31,7 +31,7 @@
       <h5 class="card-title text-center"> <%= gossip.title %> </h5>
       <h6 class="card-subtitle mb-2 text-muted">créer par : <a href="<%= user_path(gossip.user.id) %>" > <%= gossip.user.first_name %> </a></h6>
       <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary text-center"> Voir plus </a>
-      <% if current_user.id == gossip.user.id %>
+      <% if current_user && current_user.id == gossip.user.id %>
         <a href="<%= edit_gossip_path(gossip.id) %>" class="btn btn-primary text-center"> Editer </a>
         <a href="<%= gossip_path(gossip.id) %>" class="btn btn-danger text-center" data-confirm="sur ?" data-method="DELETE"> Supprimer </a>
       <% end %>

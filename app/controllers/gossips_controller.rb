@@ -3,7 +3,6 @@ class GossipsController < ApplicationController
 
   def new
     @gossip = Gossip.new
-    puts session[:user_id]
   end
 
   def create
@@ -21,21 +20,21 @@ class GossipsController < ApplicationController
   end
 
   def show
-    @gossip = Gossip.find(params[:id])
+    @gossip = gossips_finder
   end
 
   def edit
-    @gossip = Gossip.find(params[:id])
+    @gossip = gossips_finder
   end
 
   def update
-    @gossip = Gossip.find(params[:id])
+    @gossip = gossips_finder
     @gossip.update(gossips_params)
     redirect_to gossips_path
   end
 
   def destroy
-    @gossip = Gossip.find(params[:id])
+    @gossip = gossips_finder
     @gossip.delete
     redirect_to gossips_path
   end
@@ -44,6 +43,10 @@ class GossipsController < ApplicationController
 
   def gossips_params
     params.require(:gossip).permit(:title, :content)
+  end
+
+  def gossips_finder
+    Gossip.find(params[:id])
   end
 
   def authenticate_user
